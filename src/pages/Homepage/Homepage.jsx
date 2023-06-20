@@ -8,12 +8,14 @@ export const Homepage = () => {
     const [search, setSearch] = useState("");
 
     useEffect(() => {
-        if (isModal && search !== "") {
-            const PageContent = PageRef.current.inner;
+        if (isModal) {
+            const PageContent = PageRef.current.innerText;
             const regex = new RegExp(search, "gi");
             const highlightedContent = PageContent.replace(
                 regex,
-                `<span className="highlighted">$&</span>`
+                (matchword) => {
+                    return `<span class="highlighted">${matchword}</span>`;
+                }
             );
             PageRef.current.innerHTML = highlightedContent;
         }

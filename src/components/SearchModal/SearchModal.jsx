@@ -10,6 +10,9 @@ export const SearchModal = ({ isModal, setModal, search, setSearch }) => {
 
     const handleSearch = (e) => {
         setSearch(e.target.value);
+        if (e.target.value === "") {
+            setSearch(e.target.value);
+        }
     };
 
     useEffect(() => {
