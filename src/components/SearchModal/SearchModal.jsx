@@ -54,7 +54,8 @@ export const SearchModal = ({
                 />
                 {search.length > 0 && (
                     <span>
-                        {currentIndex === -1 ? 0 : currentIndex}/{TotalCount}
+                        {currentIndex === -1 ? 0 : currentIndex === 0}/
+                        {TotalCount}
                     </span>
                 )}
                 <button className={styles.Button} onClick={handleNext}>
