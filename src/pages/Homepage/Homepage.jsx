@@ -6,8 +6,11 @@ import styles from "./Homepage.module.css";
 export const Homepage = () => {
     const [isModal, setModal] = useState(false);
     const [search, setSearch] = useState("");
+    const [TotalCount, setTotalCount] = useState(0);
+    const [currentIndex, setCurrentIndex] = useState(-1);
 
     useEffect(() => {
+        //search highlight yellow
         if (isModal) {
             const PageContent = PageRef.current.innerText;
             const regex = new RegExp(search, "gi");
@@ -19,7 +22,14 @@ export const Homepage = () => {
             );
             PageRef.current.innerHTML = highlightedContent;
         }
-    }, [search]);
+        //current Highlight orange
+        const AllHighlighted = PageRef.current.querySelectorAll(".highlighted");
+        setTotalCount(AllHighlighted.length);
+        if (AllHighlighted.length > currentIndex && currentIndex !== -1) {
+            let CurrentData = AllHighlighted[currentIndex];
+            CurrentData.classList.add("darkHighlited");
+        }
+    }, [search, currentIndex]);
 
     //ref to Page content
     const PageRef = useRef();
@@ -48,6 +58,9 @@ export const Homepage = () => {
                     setModal={setModal}
                     setSearch={setSearch}
                     search={search}
+                    TotalCount={TotalCount}
+                    currentIndex={currentIndex}
+                    setCurrentIndex={setCurrentIndex}
                 />
                 <ReadingArea PageRef={PageRef} />
             </div>
