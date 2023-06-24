@@ -1,6 +1,6 @@
 # Keyword-Text-highlighter
 
-# Technologies Used
+## Technologies Used
 
 The app is built using with the following tech:
 - React JS - React Library is used for creating the complete webapp.
