@@ -1,5 +1,12 @@
 # Keyword-Text-highlighter
 
+# Technologies Used
+
+The app is built using with the following tech:
+- React JS - React Library is used for creating the complete webapp.
+- Module css: For styling and responsive user interface.
+- Vite: For bundling and serving the app.
+
 ## Features 
 - Users can search for a keyword using the keyboard shortcut <code> Ctrl+F </code>, which will open a Modal containing an input box to enter the search.
 - Once a keyword is entered, all instances of the keyword within the page content will be highlighted with a light yellow color and the total count of matches will be displayed in the Modal.
